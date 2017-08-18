@@ -1,0 +1,20 @@
+$(function(){
+     $('#loginbtn').on('click',function(){
+         $.ajax({
+           type:'POST',
+           url:'/login/userlogin',
+           data:$("#loginform").serialize(),
+           dataType:'JSON',
+           success:function(data){
+               if(data.code==1){
+                   alert(data.msg);
+                   location.href="/admin";
+               }else{
+                    alert("登录失败,原因"+data.msg);
+                    location.href="/login";
+               } 
+
+           }
+        });
+    });
+});

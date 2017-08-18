@@ -1,0 +1,94 @@
+<% include admin-header.html%>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Data Tables
+        <small>I-Blog</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> 主页</a></li>
+        <li><a href="#">博客管理</a></li>
+        <li class="active">查看博客</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Hover Data Table</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>文章标题</th>
+                  <th>作者</th>
+                  <th>文章简介</th>
+                  <th>上传日期</th>
+                  <th>文章类别</th>
+                  <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                </tfoot>        
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="control-sidebar-bg"></div>
+  <% include admin-footer.html%>
+<script>
+  $(function () {
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true ,
+      "sAjaxSource": "/admin/findblog",
+      "fnServerData": function ( sSource, aoData, fnCallback ) {
+             $.ajax( {
+             "dataType": 'json',
+             "type": "POST",
+             "url": sSource,
+             "data": aoData,
+             "success": fnCallback
+             });
+         },
+        "columns": [
+        {"data": "_id", "bVisible": false},
+        {"data": "title"},
+        {"data": "username"},
+        {"data": "description"},
+        {"data":"creatTime"},
+        {"data":"tag"}
+                    ],
+        "columnDefs": [
+        {
+          "targets": [6],
+          "data": "_id",
+          "render": function(data, type, full) {
+            return "<a href='/admin/deleteBlog?id=" + data + "'>删除博客</a>";
+          }
+        }
+      ]
+    });
+  });
+</script>
+</body>
+</html>

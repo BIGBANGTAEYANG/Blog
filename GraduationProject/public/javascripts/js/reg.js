@@ -1,0 +1,19 @@
+$(function(){
+     $('#registerbtn').on('click',function(){
+         $.ajax({
+           type:'POST',
+           url:'/register/reg',
+           data:$("#registerform").serialize(),
+           dataType:'JSON',
+           success:function(data){
+               if(data.code==1){
+                   alert(data.msg);
+                   location.href="/login";
+               }else{
+                    alert("注册失败,原因："+data.msg);
+                    location.href="/register";
+               } 
+           }
+        });
+    });
+});

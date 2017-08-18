@@ -1,0 +1,44 @@
+<% include login-header.html%>
+<div class="container">     
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <form class="form-horizontal" id="registerform">
+                    <span class="heading">Welcome I-Blog</span>
+
+                        <div class="form-group">
+                            <i class="glyphicon glyphicon-user"></i>
+                            <input type="text" class="form-control" name="username" placeholder="用户名">
+                        </div>
+
+                        <div class="form-group help">                
+                            <input type="password" class="form-control" name="password" placeholder="密　码">
+                            <i class="glyphicon glyphicon-lock"></i>                      
+                        </div>
+
+                        <div class="form-group help">                
+                            <input type="password" class="form-control"  name="passwordTwo" placeholder="确认密码">
+                            <i class="glyphicon glyphicon-lock"></i>                      
+                        </div>
+
+                        <div class="form-group">
+    	                    <input type="text" class="form-control" name="phonenumber" placeholder="联系方式">
+    	                    <i class="glyphicon glyphicon-phone"> </i>
+                        </div>
+
+                        <div class="form-group">
+    	                    <input type="email" class="form-control" name="email" placeholder="电子邮箱">
+    	                    <i class="glyphicon glyphicon-envelope"> </i>
+                        </div>
+                            
+                        <div class="form-group">
+                            <button type="button" class="btn btn-sm btn-block" id="registerbtn">注册</button> 
+                        </div>      
+                </form>
+            </div>
+        </div>
+</div>
+    <script type="text/javascript" src="/javascripts/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/js/reg.js"></script>      
+</body>
+
+</html>

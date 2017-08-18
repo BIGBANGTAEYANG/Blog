@@ -1,0 +1,96 @@
+<% include admin-header.html%>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        用户管理
+        <small>I-Blog</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> 主页</a></li>
+        <li><a href="#">用户管理</a></li>
+        <li class="active">用户信息</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+
+        <div class="col-md-6">
+          <div class="box box-primary">
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="/LTEDist/img/user2-160x160.jpg" alt="User profile picture">
+
+              <h3 class="profile-username text-center"><%=username%></h3>
+
+              <p class="text-muted text-center">Software Engineer</p>
+
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>PhoneNumber</b> <a class="pull-right"><%=phonenumber%></a>
+                </li>
+                <li class="list-group-item">
+                  <b>Email</b> <a class="pull-right"><%=email%></a>
+                </li>
+                <li class="list-group-item">
+                  <b>RegisterTime</b> <a class="pull-right"><%=registertime%></a>
+                </li>
+                <div style="height: 20px"></div>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">详细信息</h3>
+            </div>
+
+            <div class="box-body">
+              <strong><i class="fa fa-book margin-r-5"></i> 学习经历</strong>
+
+              <p class="text-muted">
+                南华大学
+              </p>
+
+
+              <hr>
+
+              <strong><i class="fa fa-map-marker margin-r-5"></i> 所在位置</strong>
+
+              <p class="text-muted">成都, 四川</p>
+
+              <hr>
+
+              <strong><i class="fa fa-pencil margin-r-5"></i> 掌握技能</strong>
+
+              <p>
+                <span class="label label-danger">UI Design</span>
+                <span class="label label-success">Coding</span>
+                <span class="label label-info">Javascript</span>
+                <span class="label label-warning">PHP</span>
+                <span class="label label-primary">Node.js</span>
+              </p>
+
+              <hr>
+
+              <strong><i class="fa fa-file-text-o margin-r-5"></i> 个人格言</strong>
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+            </div>
+          </div>
+
+        
+    </section>
+  </div>
+
+  
+  <div class="control-sidebar-bg"></div>
+  <% include admin-footer.html%>
+  
+</body>
+</html>
+

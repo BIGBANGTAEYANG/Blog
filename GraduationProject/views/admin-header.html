@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html style="overflow-y: scroll" lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title><%= title %></title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css"/> 
+    <link rel="stylesheet" href="/stylesheets/css/admin/ionic.min.css"/>
+    <link rel="stylesheet" href="/LTEDist/css/AdminLTE.min.css"/>
+    <link rel="stylesheet" href="/LTEDist/css/skins/_all-skins.min.css"/>
+    <link rel="stylesheet" href="/plugins/iCheck/flat/blue.css">
+    <link rel="stylesheet" href="/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"/>
+    <script type="text/javascript" src="/javascripts/js/jquery.min.js"></script>
+    <script src="/javascripts/js/checklogin.js"></script>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+
+<div class="wrapper">
+
+    <!--头部-->
+    <header class="main-header">
+        <a href="#" class="logo">
+            <!-- 缩小后显示的字 -->
+            <span class="logo-mini"><b>IB</b></span>
+            <!-- 正常在导航栏中显示的字 -->
+            <span class="logo-lg"><b>I-Blog</b></span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+
+            <!--用户菜单导航栏-->
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <!--这里显示登录用户的信息,下拉菜单 风格是user user-menu-->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="/LTEDist/img/user2-160x160.jpg" class="user-image" alt="User Image" />
+                            <span class="hidden-xs" id="username">
+
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <img src="/LTEDist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+
+                                <p id="userintroduce">
+                                </p>
+                                    <p>
+                                    <small id="smalltime">
+                                    <script type="application/javascript">
+                                       setInterval("smalltime.innerHTML=new Date().toLocaleString()+'星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
+                                    </script>
+                                    </small>
+                                    </p>
+                            </li>
+                            
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="#" class="btn btn-default btn-flat">详细信息</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="/login" class="btn btn-default btn-flat">用户注销</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+<!--左侧手风琴树结构-->
+    <!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- search form -->
+            <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="搜索..."/>
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+                </div>
+            </form>
+            <ul class="sidebar-menu">
+                <li class="header">主导航栏</li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> <span>用户信息管理</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/admin/userinfo"><i class="fa fa-circle-o"></i>用户详细信息</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-files-o"></i>
+                        <span>博客管理</span>
+                        <span class="label label-primary pull-right">3</span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/admin/showblog"><i class="fa fa-circle-o"></i> 查看博客</a></li>
+                        <li><a href="/admin/admineditor"><i class="fa fa-circle-o"></i> 编辑博客</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 评论管理</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                  <a href="#">
+                    <i class="fa fa-envelope"></i><span>邮箱管理</span>
+                    <span class="label label-primary pull-right">3</span>
+                  </a>
+                  <ul class="treeview-menu">
+                        <li><a href="/admin/showemail"><i class="fa fa-circle-o"></i> 邮件列表</a></li>
+                        <li><a href="/admin/reademail"><i class="fa fa-circle-o"></i> 阅读邮件</a></li>
+                        <li><a href="/admin/sendemail"><i class="fa fa-circle-o"></i> 回复邮件</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="treeview">
+                  <a href="#">
+                    <i class="fa fa-calendar"></i> <span>日志记录本</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </a>
+                  <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 查看日志</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 添加日志</a></li>
+                  </ul>
+                </li>
+
+            </ul>
+        </section>
+</aside>       
